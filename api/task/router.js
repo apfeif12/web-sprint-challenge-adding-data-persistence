@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Task = require("./model.js");
-const { checkResourceUnique } = require("../middleware/middleware.js");
+// const { checkResourceUnique } = require("../middleware/middleware.js");
 
 router.get("/", async (req, res, next) => {
     try {
@@ -11,7 +11,7 @@ router.get("/", async (req, res, next) => {
     }
 });
 
-router.post("/", checkResourceUnique, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
     try {
         const postTask = await Task.create(req.body);
         res.status(200).json(postTask);
