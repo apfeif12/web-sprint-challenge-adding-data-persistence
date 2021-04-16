@@ -28,8 +28,8 @@ const getById = async (id) => {
 
 const create = async (project) => {
     try {
-        const postProject = await db("projects").insert(project);
-        return getById(postProject[0]);
+        const projects = await db("projects").insert(project);
+        return getById(projects[0]);
     } catch (error) {
         return error;
     }
